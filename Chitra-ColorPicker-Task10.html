@@ -1,0 +1,85 @@
+<html>
+
+	<head>
+			<link rel="stylesheet" href= "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+
+		<style>
+		
+			form{
+				margin-top: 100px;
+				}
+				
+			.col-sm-12{
+				width:70%;
+				border-color:gray;	
+				border-radius: 7px;					
+				padding: 10px;
+				}
+				
+		</style>
+	</head>
+
+	<body>
+		<form role="form" class="form-inline">
+			<div class="container">
+				<div class="row">
+					<label  for="changeColor">Change Select</label>
+				</div>
+				<div class="row">
+					<select class="col-sm-12"  name="colorPick" onchange="change_color()">
+						<option value="BackgroundColor">Background Color</option>
+						<option value="Blue">Blue</option>
+						<option value="Cyan">Cyan</option>
+						<option value="White">White</option>
+						<option value="Red">Red</option>
+						<option value="Grey">Grey</option>
+						<option value="purple">Purple</option>
+						<option value="Tomato">Tomato</option>
+						<option value="Green">Green</option>
+						<option value="lightblue">LightBlue</option>
+						<option value="lightgreen">LightGreen</option>
+					</select>
+				</div>
+				
+				<div class="row">		
+					<label>Change Input</label>
+				</div>	
+				<div class="row">
+					<input class="col-sm-12"  id ="colorpicker" type ="color" onchange="changeColor()">
+				</div>
+				
+				<div class="row">		
+					<label for="changeInput">Change Input</label>
+				</div>	
+				<div class="row">
+					<input class="col-sm-12"  id="bgcolor" type="text" onchange="changeBackground()" 
+					placeholder="give a hexadecimal value or some of the color name" >
+				</div>							
+			</div>
+		</form>
+	</body>		
+	<script>
+		//The function for selecting color from list.
+			function change_color() {
+				const getSelect = document.getElementsByName("colorPick");
+				const selection =  getSelect[0].options[getSelect[0].selectedIndex].value;
+		// The working function for changing background color.	
+				document.body.style.backgroundColor = selection;
+				}
+				
+		//The function for picking color from colorpicker.		
+			function changeColor(){
+				const color = document.getElementById("colorpicker").value;
+				
+		// The working function for changing background color.		
+				document.body.style.backgroundColor = color;			
+				}
+				
+		//The function for giving hexadecimal code to change background-color.		
+			function changeBackground() {
+				const bgcolor = document.getElementById("bgcolor").value; // cached
+		// The working function for changing background color.
+				document.body.style.backgroundColor = bgcolor;
+				}
+	</script>
+</html>
